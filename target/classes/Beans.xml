@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <context:annotation-config />
+
+
+    <bean id="helloBean" class="HelloWorld" init-method="init" destroy-method="destroy" >
+        <property name="name" value="Cedric" />
+        <constructor-arg ref="ClassToInject"/>    </bean>
+    <bean id="ClassToInject" class="ClassToInject"> </bean>
+
+
+    <bean id="ImplementationInterfaceA" class="ImplementationInterfaceA"> </bean>
+    <bean id="ImplementationInterfaceB" class="ImplementationInterfaceB"> </bean>
+    <bean id="InterfaceTest" class="InterfaceTest"> </bean>
+
+    <bean id="InitTestCallBackInterfaces" class="InitTestCallBackInterfaces"> </bean>
+    <bean id="InitTestAnnotation" class="InitTestAnnotation" ></bean>
+
+
+    <bean id="helloBeanSingleton" class="HelloWorld"> </bean>
+    <bean id="helloBeanPrototype" class="HelloWorld" scope="prototype"> </bean>
+</beans>
